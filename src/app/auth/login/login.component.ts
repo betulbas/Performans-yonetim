@@ -65,6 +65,7 @@ export class LoginComponent implements OnInit {
 
     }, err => {
       alert("Login failed");
+      localStorage.removeItem("sicilno");
       this.ngOnInit();
     })
 
