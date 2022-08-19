@@ -24,20 +24,8 @@ export class AgentComponent implements OnInit {
   agent:Agents[]=[];
 
   user!:User;
- // @Input() sicilno:any;
- //t:any;
-/*
-  user2: User= {
-    
-    agentid:this.user.agentid,
-    firstname:this.user.firstname,
-    surname:this.user.surname,
-    password:this.user.password,
-    token:this.user.token,
-    role:this.user.role,
- 
-  };
-  */
+
+
  mustemSicil:String='glb9090923';
 
   
@@ -73,72 +61,6 @@ export class AgentComponent implements OnInit {
    
       }
     
-
-      
- 
-       
-     
-      
-    
-    
-      
- 
-
-/*     
-
-    this.route.paramMap.subscribe(
-      (params)=>{
-         this.agentidu = params.get('glb9090923');
-    this.agentsService.getSicil(this.agentidu)
-    .subscribe(
-      (success)=>{
-        this.agent=success;
-        console.log("result: ", success);
-        this.dataSource=new MatTableDataSource<Agents>(this.agent);
-        this.dataSource.paginator=this.paginator;
-        this.dataSource.sort=this.sort;
-      },
-      (err)=>
-      {
-
-      }
-    )
-
-
-
-    this.user.agentid = this.agentidu;
-      
-         this.agentsService.getSicil(this.agentidu).subscribe(
-          (success)=>{
-            this.agent=success;
-            this.dataSource=new MatTableDataSource<Agents>(this.agent);
-            this.dataSource.paginator=this.paginator;
-            this.dataSource.sort=this.sort;
-
-          },
-          (error)=>{
-
-          }
-         )
-
-
-
-
-    this.agentsService.getAgent()
-    .subscribe(
-      (success)=>{
-        this.agent=success;
-        this.dataSource=new MatTableDataSource<Agents>(this.agent);
-        this.dataSource.paginator=this.paginator;
-        this.dataSource.sort=this.sort;
-      },
-      (err)=>
-      {
-
-      }
-    )
-  
-  */
   
   filterAgent()
   {
