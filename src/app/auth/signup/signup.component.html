@@ -1,0 +1,38 @@
+<div class="container-fluid">
+  <div class="row">
+      <div class="col-md-6">
+          <img src="../../../assets/callcenter.jpg" height="100%" width="100%">
+      </div>
+      <div class="col-md-4 mt-3 mb-2">
+          <h3 class="text-success text-center"><b>Hoşgeldiniz </b></h3>
+
+          <form action="" class="mt-5 p-5">
+              <h5 class="text-primary mb-3">Üye ol </h5>
+              <div class="form-floating mb-3">
+                  <input type="text" class="form-control" id="floatingInput" placeholder="firstname" name="firstname" [(ngModel)]="firstname">
+                  <label for="floatingInput">adı</label>
+              </div>
+              <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="floatingInput" placeholder="surname" name="surname" [(ngModel)]="surname">
+                <label for="floatingInput">soyadı</label>
+            </div>
+              <div class="form-floating mb-3">
+                  <input type="text" class="form-control" id="floatingInput" placeholder="Sicil" name="agentid" [(ngModel)]="agentid">
+                  <label for="floatingInput">Sicil nosu</label>
+              </div>
+                <div class="form-floating mb-3">
+                  <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="password" [(ngModel)]="password">
+                  <label for="floatingPassword">Parola</label>
+                </div>
+                
+                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                  <button class="btn btn-outline-success me-md-2" type="button" (click)="signup()" >Üye ol</button>
+                </div>
+
+                <a routerLink="/" class="text-primary" style="text-decoration: none;">Giriş Yap</a>
+          </form>
+      </div>
+      <div class="col-md-2">
+      </div>
+  </div>
+</div>

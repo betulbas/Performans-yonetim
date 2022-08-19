@@ -1,0 +1,18 @@
+table{
+    width: 100%;
+}
+
+.search-input{
+    outline: none;
+    border: 1px solid #ccc;
+    padding: 16 px 20 px;
+    border-radius: 21px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.search-input.active{
+    border: 3px solid #bbb;
+}
+.search-input:focus{
+    border: 2px solid #aaa;
+}

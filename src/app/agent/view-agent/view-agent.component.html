@@ -1,0 +1,113 @@
+<div class="page-header">
+  <div class="container">
+      <h1>{{header}}</h1>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row p-1">
+    <div class="geri">
+      <a routerLink="/agent" color="primary" mat-raised-button>
+        <mat-icon>chevron_left</mat-icon>
+        Geri Dön
+      </a>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-6">
+      <form #studentDetailsForm="ngForm">
+        <div class="row">
+          <div class="col-xs-12">
+            <mat-form-field class="example-full-width" appearance="outline">
+              <mat-label>Sicil no</mat-label>
+              <input matInput [(ngModel)]="agent.agentid" name="agentid">
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-6">
+            <mat-form-field class="example-full-width" appearance="outline">
+              <mat-label>Ad</mat-label>
+              <input matInput [(ngModel)]="agent.firstname" name="firstname">
+            </mat-form-field>
+          </div>
+          <div class="col-xs-6">
+            <mat-form-field class="example-full-width" appearance="outline">
+              <mat-label>Soyad</mat-label>
+              <input matInput [(ngModel)]="agent.surname" name="surname">
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12">
+            <mat-form-field appearance="outline">
+              <mat-label>Tarih</mat-label>
+              <input matInput [matDatepicker]="picker"  [(ngModel)]="agent.date" name="date">
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-6">
+            <mat-form-field class="example-full-width" appearance="outline">
+              <mat-label>Başlangıç</mat-label>
+              <input matInput  type="datetime-local" placeholder="başlangıç saati" [(ngModel)]="agent.begin" name="begin">
+            </mat-form-field>
+          </div>
+          <div class="col-xs-6">
+            <mat-form-field class="example-full-width" appearance="outline">
+              <mat-label>Bitiş</mat-label>
+                <input matInput  type="datetime-local"  placeholder="bitiş saati" [(ngModel)]="agent.finish" name="finish" >
+            </mat-form-field>
+          </div>
+        </div>
+       
+        <div class="row">
+          <div class="col-xs-6">
+            <mat-form-field appearance="outline">
+              <mat-label>Mazeret seçiniz:</mat-label>
+              <mat-select [(value)]="selected"  [(ngModel)]="agent.excuse" name="excuse">
+                <mat-option value="none">None</mat-option>
+                <mat-option value="hastalık">Hastalık</mat-option>
+                <mat-option value="raporlu">Raporlu</mat-option>
+                <mat-option value="ölüm izni">Ölüm izni</mat-option>
+                <mat-option value="doğum izni">Doğum izni</mat-option>
+                <mat-option value="yıllık izin">Yıllık izin</mat-option>
+                <mat-option value="ücretli izin">Ücretli izin</mat-option>
+                <mat-option value="evlilik izni">Evlilik izni</mat-option>
+                <mat-option value="regl izni">Regl izni</mat-option>
+                <mat-option value="pandemi">Pandemi ücretsiz izni</mat-option>
+                <mat-option value="doğum günü izni">Doğum günü izni :)</mat-option>
+              </mat-select>
+            </mat-form-field>
+            
+          </div>
+
+          <div class="col-xs-6" >
+            <mat-form-field class="example-full-width" appearance="outline">
+              <mat-label>Mazeret saati</mat-label>
+              <input matInput placeholder="mazeretin saati" [(ngModel)]="agent.excusehours" name="excusehours">
+            </mat-form-field>
+          </div>
+
+        </div>
+     
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="row between-xs" *ngIf="!isNewAgent">
+              <button mat-raised-button color="primary" (click)="onUpdate()">Kaydet</button>
+              <button mat-raised-button color="warn" (click)="onDelete()">Sil</button>
+            </div>
+            <div class="row between-xs" *ngIf="isNewAgent">
+              <button mat-raised-button color="primary" (click)="onAdd()">Kaydet</button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="col-xs-6"></div>
+  </div>
+
+
+</div>

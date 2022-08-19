@@ -1,0 +1,79 @@
+
+<div class="page-header">
+    <div class="container">
+        <h1>Müşteri Temsilcisi Performans Yönetim</h1>
+    </div>
+
+</div>
+
+
+
+<div class="container mt-1">
+  <div class="row end-xs">
+    <div class="col-xs-12">
+      <a style="margin-right: 10px;" color="primary" routerLink="/agent/add" mat-raised-button>Ekle</a>
+      <button class="btn btn-outline-success" (click)="logout()">Logout</button>
+       <input type="text" class="search-input" placeholder="Ara" [(ngModel)]="filterString" (keyup)="filterAgent()">
+
+   
+    </div>
+</div>
+</div>
+
+
+<div class="container">
+
+<div class="mt-1 mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource" matSort >
+
+
+      
+        <ng-container matColumnDef="date" >
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Tarih </th>
+          <td mat-cell *matCellDef="let element"> {{element.date | date:'dd-MM-yyyy'}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="begin">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Başlangıç </th>
+            <td mat-cell *matCellDef="let element"> {{element.begin | date:'h:mm a'}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="finish">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Bitiş </th>
+            <td mat-cell *matCellDef="let element"> {{element.finish | date:'h:mm a'}} </td>
+          </ng-container>
+      
+    
+        <ng-container matColumnDef="excuse">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Mazeret </th>
+          <td mat-cell *matCellDef="let element"> {{element.excuse}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="excusehours">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Mazeret saati </th>
+            <td mat-cell *matCellDef="let element"> {{element.excusehours}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="edit">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header></th>
+            <td mat-cell *matCellDef="let element">
+            <a [routerLink]="['/agent',element.id]">
+              <mat-icon>edit</mat-icon>
+            </a>
+          </td>
+          </ng-container>
+        
+      
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+
+      <mat-paginator [pageSizeOptions]="[5, 10, 20]"
+      showFirstLastButtons 
+      aria-label="Select page of periodic elements">
+      </mat-paginator>
+      
+      
+</div>
+
+</div>
