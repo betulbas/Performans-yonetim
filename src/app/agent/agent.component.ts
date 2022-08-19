@@ -1,16 +1,17 @@
+import * as XLSX from 'xlsx';
+
+import { ActivatedRoute, Router } from '@angular/router';
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
-//import * as XLSX from 'xlsx';
+
+import { Agents } from '../models/ui-models/agents.model';
+import { AgentsService } from './agents.service';
+import { LoginComponent } from '../auth/login/login.component';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { Agents } from '../models/ui-models/agents.model';
-import { AgentsService } from './agents.service';
-import * as XLSX from 'xlsx';
-import { ActivatedRoute, Router } from '@angular/router';
 import { User } from '../auth/model/ui-models/user';
-import { LoginComponent } from '../auth/login/login.component';
 
-
+//import * as XLSX from 'xlsx';
 
 @Component({
   selector: 'app-agent',
@@ -20,13 +21,12 @@ import { LoginComponent } from '../auth/login/login.component';
 })
 export class AgentComponent implements OnInit {
 
-
   agent:Agents[]=[];
 
   user!:User;
 
 
- mustemSicil:String='glb9090923';
+ mustemSicil = localStorage.getItem('sicilno');
 
   
   displayedColumns: string[] = [ 'date', 'begin','finish','excuse','excusehours','edit'];
@@ -50,16 +50,12 @@ export class AgentComponent implements OnInit {
 
   ngOnInit(): void {
     console.log('user',this.user);
-            
-           this.agentsService.getSicil(this.mustemSicil).subscribe((res: any) => {
-
-          this.dataSource = res;
-   
-           console.log('response-> ', res);
-   
-          });
-   
-      }
+    this.mustemSicil = localStorage.getItem('sicilno');
+    this.agentsService.getSicil(this.mustemSicil).subscribe((res: any) => {
+      this.dataSource = res;
+      console.log('response-> ', res);
+    });
+  }
     
   
   filterAgent()
@@ -67,7 +63,7 @@ export class AgentComponent implements OnInit {
     this.dataSource.filter = this.filterString.trim().toLocaleLowerCase();
   }
   logout() {
-    localStorage.removeItem("token");
+    localStorage.removeItem("sicilno");
     this.router.navigate(['/']);
   }
 
